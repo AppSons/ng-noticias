@@ -4,27 +4,23 @@
     <div class="row mt-3">
       <div class="col-lg-8 offset-lg-2">
           <form>
-
             <div class="form-group">
               <select name="categoria" class="form-select form-control-lg">
-                <option>General</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
+                <option [value]="categoria.value" *ngFor="let categoria of categorias">{{ categoria.nombre}}</option>
 
-            <div class="form-group">
-              <select name="país" class="form-select form-control-lg">
-                <option>Argentina</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
               </select>
             </div>
+            <div class="form-group">
+              <label for="exampleSelect1" class="form-label mt-2"></label>
+              <select name="país" class="form-select form-control-lg">
+                <option [value]="pais.value" *ngFor="let pais of paises">{{ pais.nombre}}</option>
+
+              </select>
+            </div>
+            <label for="exampleSelect1" class="form-label mt-2"></label>
           </form>
+
+          <button class="btn btn-primary btn-block btn-lg">Buscar</button>
     </div>
   </div>
 </div>

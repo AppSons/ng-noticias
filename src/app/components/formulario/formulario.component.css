@@ -5,3 +5,10 @@
   text-transform: uppercase;
   text-align: center;
 }
+.btn {
+  font-size: 1.5rem;
+  width: 800px;
+}
+.select {
+  width: 950px;
+}
