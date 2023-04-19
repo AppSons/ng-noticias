@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-formulario',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
+  @Output() paramSelect = new EventEmitter<any>;
+
+  categoriaSelect = 'general';
+  paisSelect = 'us';
 
   categorias: any[] = [
     {value: 'general', nombre: 'General' },
@@ -18,6 +22,7 @@ export class FormularioComponent implements OnInit {
   ];
 
   paises: any[] = [
+    {value: 'us', nombre: 'Estados Unidos' },
     {value: 'ar', nombre: 'Argentina' },
     {value: 'br', nombre: 'Brasil' },
     {value: 'fr', nombre: 'Francia' },
@@ -29,6 +34,15 @@ export class FormularioComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  buscarNoticia() {
+    const PARAMETROS = {
+      categoria: this.categoriaSelect,
+      pais: this.paisSelect,
+    }
+
+    this.paramSelect.emit(PARAMETROS);
   }
 
 }
